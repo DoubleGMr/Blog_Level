@@ -1,0 +1,47 @@
+<% provide(:title,'Contact') %>
+<div class="list">
+	<ul class="left">
+		<li>
+			<span class="category">Something Talk</span>
+			<ul>
+				<li><a href="#">确保你的邮箱正在使用</a></li>
+				<li><a href="#">确认你的昵称</a></li>
+				<li><a href="#">请正确表述你的信息内容</a></li>
+				<li><a href="#">请不要多次重复发送</a></li>
+			</ul>
+		</li>
+		<li>
+			<span class="category">About Reply</span>
+			<ul>
+				<li><a href="#">回复将在3～5个工作日内完成</a></li>
+				<li><a href="#">请耐心等待</a></li>
+			</ul>
+		</li>
+	</ul>
+</div>
+<div class="maincontent">
+	<h2>Write Down Here</h2>
+	<div class="contact_f">
+		<form action="#">
+			<div>
+				<label for="name">Name <small>(正确的姓名或称号)</small></label>
+				<input type="text" placeholder="Please write down your name here">
+			</div>
+			<div>
+				<label for="email">Email <small>(确保正在使用)</small></label>
+				<input type="text" placeholder="Please write down your email here">
+			</div>
+			<div>
+				<label for="type">Type <small>(eg: 错误 问题 or 其他类型)</small></label>
+				<input type="text" placeholder="Please write down the type of content">
+			</div>
+			<div>
+				<label for="content">Content <small>(请详细表述您的问题)</small></label>
+				<textarea placeholder="It's best limit to 100~150 words"></textarea>
+			</div>
+			<div>
+				<input type="submit" value="Submit">
+			</div>
+		</form>
+	</div>
+</div>
