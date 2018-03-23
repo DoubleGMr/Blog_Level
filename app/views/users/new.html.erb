@@ -1,2 +1,24 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<% provide(:title,'New User') %>
+<h2>请填写正确的内容</h2>
+<%= form_for(@user, url: signup_path) do |f| %>
+	<%= render 'shared/error_messages' %>
+	<div>
+		<label for="name"><span class="fa fa-pencil fa-fw"></span> 昵称</label>
+		<%= f.text_field :name, placeholder: "账户昵称"%>
+	</div>
+	<div>
+		<label for="account"><span class="fa fa-user fa-fw"></span> 邮箱</label>
+		<%= f.text_field :email,placeholder: "你的邮箱地址" %>
+	</div>
+	<div>
+		<label for="password"><span class="fa fa-lock fa-fw"></span> 密码</label>
+		<%= f.password_field :password,placeholder: "你的密码" %>
+	</div>
+	<div>
+		<label for="password_confirmation"><span class="fa fa-lock fa-fw"></span> 密码</label>
+		<%= f.password_field :password_confirmation,placeholder: "密码确认" %>
+	</div>
+	<div>
+		<%= f.submit "Sign Up" %>
+	</div>
+<% end %>

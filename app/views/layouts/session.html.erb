@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+    <title><%= full_title(yield(:title)) %></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+	<header class="font" style="min-width: 415px;">
+    <nav>
+      <div class="container clear">
+        <div class="logo">
+          <a href="#"><h1><span style="color: #26abe2;">Want</span>ing</h1></a>
+        </div>
+        <div class="mobile-button">
+          <button><span class="fa fa-bars"></span></button>
+        </div>
+        <div class="link clear">
+          <div class="dropmenu">
+            <ul class="clear">
+              <li>
+                <a href="#" class="DownButton">Already have account?<strong style="color:#26abe2;padding-left: 10px;">Log in</strong></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="session">
+    <div class="container">
+      <div class="webTopic">
+        <h2>欢迎来到<strong class='font'>Wanting</strong>这个“世界”</h2>
+        <p>衷心感谢您的光临</p>
+        <p>希望您能在这里有新的体会</p>
+        <p>/*但请报以学习或指点的心态正确浏览、使用*/</p>
+      </div>
+      <div class="session_form">
+        <div class="form">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </body>
+</html>

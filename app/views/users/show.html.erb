@@ -1,0 +1,105 @@
+<% provide(:title,'MyProfile') %>
+<div class="list">
+	<ul>
+		<li>
+			<%= image_tag('pic.jpeg') %>
+		</li>
+		<li>
+			<span class="category">Some of My Data</span>
+			<ul>
+				<li><a>Name: <%= @user.name %></a></li>
+				<li><a><%= @user.email %></a></li>
+			</ul>
+		</li>
+	</ul>
+</div>
+<div class="maincontent">
+	<h2>Some of My Data</h2>
+	<div class="introduce">
+		<h3>Account Type: <strong style="color:#26abe2;"">Administrator</strong></h3>
+		<p><strong>The following are all my historical reviews<br>以下是我全部的历史评论</strong>
+		</p>
+		<ul style="padding-left:0;">
+			<li>
+				<div class="comment_c">
+					<div class="left_img">
+						<%= image_tag('pic.jpeg') %>
+					</div>
+					<div class="right_data">
+						<div>
+							<p>For: <strong><a href="#" class="time">the title of posts</a></strong> <span class="reply_list_button">查看回复</span></p>
+							<p class="data_c">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora numquam adipisci necessitatibus, quia quis obcaecati quidem, cum aspernatur. Repudiandae similique debitis error id repellat ipsa ratione quisquam nam odit, officia!</p>
+						</div>
+						<div class="reply_content">
+							<h2 style="font-size: 1.2rem;padding: 5px 0;">回复列表</h2>
+							<div class="reply_list">
+								<div class="comment_c">
+									<div class="left_img">
+										<%= image_tag('pic.jpeg') %>
+									</div>
+									<div class="right_data">
+										<div>
+											<p><strong>Tourist's Name</strong> <span class="time">March 18, 2018</span></p>
+											<p class="data_c">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora numquam adipisci necessitatibus, quia quis obcaecati quidem, cum aspernatur. Repudiandae similique debitis error id repellat ipsa ratione quisquam nam odit, officia!</p>
+										</div>
+									</div>
+								</div>
+								<div class="comment_c">
+									<div class="left_img">
+										<%= image_tag('pic.jpeg') %>
+									</div>
+									<div class="right_data">
+										<div>
+											<p><strong>Tourist's Name</strong> <span class="time">March 18, 2018</span></p>
+											<p class="data_c">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora numquam adipisci necessitatibus, quia quis obcaecati quidem, cum aspernatur. Repudiandae similique debitis error id repellat ipsa ratione quisquam nam odit, officia!</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="comment_c">
+					<div class="left_img">
+						<%= image_tag('pic.jpeg') %>
+					</div>
+					<div class="right_data">
+						<div>
+							<p>For: <strong><a href="#" class="time">the title of posts</a></strong> <span class="reply_list_button">查看回复</span></p>
+							<p class="data_c">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora numquam adipisci necessitatibus, quia quis obcaecati quidem, cum aspernatur. Repudiandae similique debitis error id repellat ipsa ratione quisquam nam odit, officia!</p>
+						</div>
+						<div class="reply_content">
+							<h2 style="font-size: 1.2rem;padding: 5px 0;">回复列表</h2>
+							<div class="reply_list">
+								<div class="comment_c">
+									<div class="left_img">
+										<%= image_tag('pic.jpeg') %>
+									</div>
+									<div class="right_data">
+										<div>
+											<p><strong>Tourist's Name</strong> <span class="time">March 18, 2018</span></p>
+											<p class="data_c">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora numquam adipisci necessitatibus, quia quis obcaecati quidem, cum aspernatur. Repudiandae similique debitis error id repellat ipsa ratione quisquam nam odit, officia!</p>
+										</div>
+									</div>
+								</div>
+								<div class="comment_c">
+									<div class="left_img">
+										<%= image_tag('pic.jpeg') %>
+									</div>
+									<div class="right_data">
+										<div>
+											<p><strong>Tourist's Name</strong> <span class="time">March 18, 2018</span></p>
+											<p class="data_c">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora numquam adipisci necessitatibus, quia quis obcaecati quidem, cum aspernatur. Repudiandae similique debitis error id repellat ipsa ratione quisquam nam odit, officia!</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>

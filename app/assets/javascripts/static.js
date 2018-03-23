@@ -73,4 +73,11 @@ $(document).on("turbolinks:load",function(){
 			}
 		});
 	});
+	$('.close').click(function(){
+		if($('.error_explanation').length>0){
+			$('.error_explanation').fadeOut(200);
+		}else if($('.flash').length>0){
+			$('.flash').fadeOut(200);
+		}
+	})
 });
