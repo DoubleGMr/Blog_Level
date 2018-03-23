@@ -18,13 +18,18 @@
 				<div class="dropmenu">
 					<ul class="clear">
 						<li>
-							<a class="DownButton">My Account <span class="fa fa-angle-down" style="padding-left: 10px;"></span></a>
-							<ul class="downmenu">
-								<li><a href="#">My Profile</a></li>
-								<li><a href="#">My All Posts</a></li>
-								<hr style="width: 95%; background-color: #f0f0f0; border-color: transparent;">
-								<li><a href="#">Log Out</a></li>
-							</ul>
+							<% if logged_in? %>
+								<a class="DownButton">My Account <span class="fa fa-angle-down" style="padding-left: 10px;"></span></a>
+								<ul class="downmenu">
+									<li><%= link_to 'My Profile',current_user %></li>
+									<li><%= link_to 'My All Post','#' %></li>
+									<hr style="width: 95%; background-color: #f0f0f0; border-color: transparent;">
+									<li><%= link_to 'Log Out',logout_path,method: :delete %></li>
+								</ul>
+							<% else %>
+								<%= link_to 'Sign In', login_path,class: 'DownButton'%>
+							<% end %>
+							
 						</li>
 					</ul>
 				</div>

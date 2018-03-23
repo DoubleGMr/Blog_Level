@@ -2,6 +2,9 @@ $(document).on("turbolinks:load",function(){
 	$('.DownButton').click(function(){
 		$('.downmenu').slideToggle(200);
 	});
+	$('.downmenu>li').click(function(){
+		$('.downmenu').css('display','none');
+	});
 	$('.mobile-button').click(function(){
 		$('.link').slideToggle(200);
 	});

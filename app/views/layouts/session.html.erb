@@ -25,7 +25,15 @@
           <div class="dropmenu">
             <ul class="clear">
               <li>
-                <a href="#" class="DownButton">Already have account?<strong style="color:#26abe2;padding-left: 10px;">Log in</strong></a>
+                <% if yield(:title)== 'Login User' %>
+                  <%= link_to signup_path,class: 'DownButton' do %>
+                    Don't have account?<strong style="color:#26abe2;padding-left: 10px;">Sign up</strong>
+                  <% end %>
+                <% else %>
+                  <%= link_to login_path,class: 'DownButton' do %>
+                    Already have account?<strong style="color:#26abe2;padding-left: 10px;">Log in</strong>
+                  <% end %>
+                <% end %>
               </li>
             </ul>
           </div>
@@ -33,6 +41,14 @@
       </div>
     </nav>
   </header>
+
+  <% flash.each do |message_type, message| %>
+      <div class="container flash">
+        <div class="flash-message alert alert-<%= message_type %>"><%= message %> <span class="fa fa-close fw close"></span></div>
+      </div>
+  <% end %>
+
+      
   <div class="session">
     <div class="container">
       <div class="webTopic">
