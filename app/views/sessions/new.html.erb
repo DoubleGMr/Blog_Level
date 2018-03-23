@@ -10,23 +10,11 @@
 		<%= f.password_field :password,placeholder: "你的密码" %>
 	</div>
 	<div>
-		<%= f.submit "Login" %>
-	</div>
-<% end %>
-<!-- <form action="#">
-	<div>
-		<label for="account"><span class="fa fa-user fa-fw"></span> 帐户</label>
-		<input type="text" placeholder="Your account">
-	</div>
-	<div>
-		<label for="password"><span class="fa fa-lock fa-fw"></span> 密码</label>
-		<input type="password" placeholder="Your password">
-	</div>
-	<div>
-		<input type="checkbox"> <span class="remember">记住我</span>
+		<%= f.check_box :remember_me %>
+		<span class="remember">记住我</span>
 		<a href="#" class="forget">Forget your password?</a>
 	</div>
 	<div>
-		<input type="submit" value="Login">
-	</div>	
-</form> -->
+		<%= f.submit "Login" %>
+	</div>
+<% end %>
