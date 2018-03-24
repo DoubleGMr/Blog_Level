@@ -1,0 +1,18 @@
+<% provide(:title,'Forget Password') %>
+<h2>请填写正确的邮箱</h2>
+<%= form_for(:password_reset, url: password_resets_path) do |f| %>
+	 <%= render 'shared/error_messages',object: @user %>
+	 
+	 <%= hidden_field_tag :email, @user.email %>
+	<div>
+		<label for="password"><span class="fa fa-lock fa-fw"></span> 密码</label>
+		<%= f.password_field :password,placeholder: "新的密码" %>
+	</div>
+	<div>
+		<label for="password_confirmation"><span class="fa fa-lock fa-fw"></span> 密码</label>
+		<%= f.password_field :password_confirmation,placeholder: "密码确认" %>
+	</div>
+	<div>
+		<%= f.submit "Submit" %>
+	</div>
+<% end %>

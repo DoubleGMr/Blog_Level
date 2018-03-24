@@ -12,7 +12,7 @@
 	<div>
 		<%= f.check_box :remember_me %>
 		<span class="remember">记住我</span>
-		<a href="#" class="forget">Forget your password?</a>
+		<%= link_to 'Forget your password?',new_password_reset_path,class: 'forget' %>
 	</div>
 	<div>
 		<%= f.submit "Login" %>

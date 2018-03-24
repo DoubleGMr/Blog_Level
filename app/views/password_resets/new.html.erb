@@ -1,0 +1,11 @@
+<% provide(:title,'Forget Password') %>
+<h2>请填写正确的邮箱</h2>
+<%= form_for(:password_reset, url: password_resets_path) do |f| %>
+	<div>
+		<label for="account"><span class="fa fa-user fa-fw"></span> 邮箱</label>
+		<%= f.text_field :email,placeholder: "你的邮箱地址" %>
+	</div>
+	<div>
+		<%= f.submit "Submit" %>
+	</div>
+<% end %>
