@@ -22,12 +22,13 @@
 								<a class="DownButton">My Account <span class="fa fa-angle-down" style="padding-left: 10px;"></span></a>
 								<ul class="downmenu">
 									<li><%= link_to 'My Profile',current_user %></li>
+									<li><%= link_to 'Edit Profile', edit_user_path(current_user) %></li>
 									<li><%= link_to 'My All Post','#' %></li>
 									<hr style="width: 95%; background-color: #f0f0f0; border-color: transparent;">
 									<li><%= link_to 'Log Out',logout_path,method: :delete %></li>
 								</ul>
 							<% else %>
-								<%= link_to 'Sign In', login_path,class: 'DownButton'%>
+								<%= link_to 'Login / SignUp', login_path,class: 'DownButton'%>
 							<% end %>
 							
 						</li>

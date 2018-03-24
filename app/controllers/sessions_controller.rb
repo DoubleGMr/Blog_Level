@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
-  layout 'session',only:[:new,:create]	
+  layout 'session',only:[:new,:create]
+  
   def new
   end
 

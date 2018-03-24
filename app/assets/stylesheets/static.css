@@ -6,7 +6,7 @@ body{
 	font-size: 100%;
 	margin: 0;
 	padding: 0;
-	font-weight: 800;
+	font-weight: 500;
 	color: #444;
 }
 a{
@@ -49,6 +49,7 @@ header nav{
 	float: left;
 }
 header nav .logo{
+	width: auto;
 	min-height: 92px;
 }
 header nav .container{
@@ -225,8 +226,8 @@ header .word h2 strong{
 	font-size: .9rem;
 }
 .post-list li>p{
-	font-size: .9rem;
 	color: #666;
+	line-height: 1.4rem;
 }
 .content .contact_f form>div{
 	margin-bottom: 15px;
@@ -627,6 +628,32 @@ footer p{
 	cursor: pointer;
 }
 
+.pagination{
+	display: inline-block;
+	margin: 30px 0 20px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+.pagination .previous_page,.next_page,.pagination a,.pagination em{
+	display: inline-block;
+	padding: 7px 12px;
+	float: left;
+	border-left: 1px solid #ccc;
+}
+.pagination .previous_page{
+	border-left: 0;
+}
+.pagination .previous_page,.next_page{
+	padding: 7px 10px;
+}
+.pagination a{
+	color: #26abe2;
+}
+.pagination .current{
+	background-color: #26abe2;
+	color: #f0f0f0;
+}
+
 
 @media screen and (min-width: 768px){
 	.container{
@@ -638,7 +665,7 @@ footer p{
 	header nav .link{
 		position: relative;
 		display: block !important;
-		width: calc(100% - 124px);
+		width: calc(100% - 131px);
 		background-color: transparent;
 	}
 	header nav .navbar, header nav .dropmenu{
@@ -706,6 +733,9 @@ footer p{
 	}
 	.session .container>div.webTopic{
 		padding: 20px 30px;
+	}
+	.pagination .previous_page,.next_page,.pagination a,.pagination em{
+		padding: 10px 20px;
 	}
 }
 @media screen and (min-width: 850px){

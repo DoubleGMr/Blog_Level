@@ -1,0 +1,13 @@
+<li>
+	<h3>
+		<%= link_to user.name ,user %>
+		<%= link_to user.email ,user, class: 'category' %>
+	</h3>
+	<span>Create_at: <%= user.created_at %></span>
+	<div class="control" style="margin-top: 20px;">
+		<%= link_to 'Edit',edit_user_path(user),class: 'edit'%>
+		<% if current_user.admin? && !current_user?(user) %>
+			<%= link_to 'Delete',user,class: 'destroy',method: :delete, data:{ confirm: "你确定要删除#{ user.name }吗？" } %>
+		<% end %>
+	</div>	
+</li>

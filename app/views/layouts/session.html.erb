@@ -29,10 +29,12 @@
                   <%= link_to signup_path,class: 'DownButton' do %>
                     Don't have account?<strong style="color:#26abe2;padding-left: 10px;">Sign up</strong>
                   <% end %>
-                <% else %>
+                <% elsif(yield(:title)== 'New User') %>
                   <%= link_to login_path,class: 'DownButton' do %>
                     Already have account?<strong style="color:#26abe2;padding-left: 10px;">Log in</strong>
                   <% end %>
+                <% else %>
+                  <strong style="color:#26abe2;padding-left: 10px;">Hope You Have Good Time!</strong>
                 <% end %>
               </li>
             </ul>

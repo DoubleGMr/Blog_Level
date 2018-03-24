@@ -1,1 +1,21 @@
 <% provide(:title,'AllTourist') %>
+<div class="list">
+	<ul class="left">
+		<li>
+			<span class="category">Sorting of Tourist</span>
+			<ul>
+				<li><a href="#">Asc of Time(正序)</a></li>
+				<li><a href="#">Desc of Time(倒序)</a></li>
+			</ul>
+		</li>
+	</ul>
+</div>
+<div class="maincontent">
+	<h2>All Tourists</h2>
+	<ul class="post-list">
+		<% @users.each do |user| %>
+			<%= render user %>
+		<% end %>
+	</ul>
+	<%= will_paginate %>
+</div>
