@@ -1,0 +1,4 @@
+你好,亲爱的<%= @user.name %>
+欢迎来到 'Wanting' 的世界,复制下方的超链接至浏览器中以完成账号激活：
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
+希望你能够学习到自己想要的内容

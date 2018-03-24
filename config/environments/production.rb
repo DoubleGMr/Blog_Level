@@ -1,5 +1,17 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { host: "http://localhost:3000" } #网站网址，以后改
+  config.action_mailer.smtp_settings = {
+    :address => "smtp.163.com",
+    :port => "587",
+    :domain => "163.com",
+    :authentication => "plain",
+    :user_name => "y13422496263@gmail.com",
+    :password => "y202302.",
+    :enable_starttls_auto => true
+  }
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -60,7 +72,7 @@ Rails.application.configure do
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "Blog-Level1_#{Rails.env}"
-  config.action_mailer.perform_caching = false
+  config.action_mailer.perform_caching = true
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

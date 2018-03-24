@@ -1,0 +1,9 @@
+<h1>感谢你的注册</h1>
+<p>你好,亲爱的<%= @user.name %></p>
+<p>
+    欢迎来到 'Wanting' 的世界,点击下方的超链接以完成账号激活：
+</p>
+    <%= link_to "Activate", edit_account_activation_url(@user.activation_token,email: @user.email) %>
+ <p>
+ 	希望你能够学习到自己想要的内容
+ </p>
