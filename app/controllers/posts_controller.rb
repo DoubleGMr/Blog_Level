@@ -3,11 +3,12 @@ class PostsController < ApplicationController
   before_action :logged_in_user, except:[:show]
   before_action :admin_user, except:[:show]
 
+
   def index
   	if params[:order]
        @posts = current_user.posts.paginate(page: params[:page]).order(created_at: params[:order])
     else
-      @posts = current_user.posts.paginate(page: params[:page]).order(created_at: :desc)
+       @posts = current_user.posts.paginate(page: params[:page])
     end
   end
 

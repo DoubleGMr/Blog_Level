@@ -55,7 +55,8 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
 	                          password_confirmation: "foobaz" } }
 	assert is_logged_in?
 	assert_not flash.empty?
-	assert_redirected_to user
+	name = (user.name).gsub(' ','-').downcase
+	assert_redirected_to user_path(name)
   end
 
   test "expired token" do
