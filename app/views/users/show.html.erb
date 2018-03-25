@@ -9,6 +9,7 @@
 			<ul>
 				<li><a>Name: <%= @user.name %></a></li>
 				<li><a><%= @user.email %></a></li>
+				<li><%= link_to 'Edit Profile',edit_user_path(@user),class: 'btn' %></li>
 			</ul>
 		</li>
 	</ul>

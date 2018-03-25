@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+test:
+  title: "test"
+  content: "this is a test."
+  publish: true
+  created_at: <%= 10.minutes.ago.to_s(:db) %>
+
+test1:
+  title: "test1"
+  content: "this is a test1."
+  publish: true
+  created_at: <%= 3.year.ago.to_s(:db) %>
+
+most_recent:
+  title: "test2"
+  content: "this is a test2."
+  publish: true
+  created_at: <%= Time.now.to_s(:db) %>

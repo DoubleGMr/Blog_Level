@@ -1,0 +1,83 @@
+<div class="list">
+	<ul class="left">
+		<li>
+			<span class="category">Post's Structure</span>
+			<ul>
+				<li><a class="localtion" id='title'>Post's Title</a></li>
+				<li><a class="localtion" id='data'>Post's Data</a></li>
+				<li><a class="localtion" id='content'>Post's Content</a></li>
+			</ul>
+		</li>
+		<li>
+			<span class="category">Post's Comments</span>
+			<ul>
+				<li><a class="localtion" id='comment_w'>Comments' content</a></li>
+				<li><a class="localtion" id='comment_d'>Comment</a></li>
+			</ul>
+		</li>
+	</ul>
+</div>
+<div class="maincontent">
+	<h2 id="title_l"><%= @post.title %></h2>
+	<div class="post">
+		<p id='data_l'><span>Author: James</span><span>Date: <%= @post.created_at %></span></p>
+		<p id="content_l">
+			<%= @post.content %>
+		</p>
+	</div>
+	<h2 id="comment_w_l" style="font-size: 2rem;">The comments of the Post</h2>
+	<div class="comments">
+		<div class="comment_c">
+			<div class="left_img">
+				<%= image_tag('pic.jpeg') %>
+			</div>
+			<div class="right_data">
+				<div>
+					<p>Floor: 1 <span class="time">March 18, 2018</span></p>
+					<p><strong>Tourist's Name</strong> <span class="reply_button">回复</span> <span class="reply_list_button">查看回复</span></p>
+					<p class="data_c">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora numquam adipisci necessitatibus, quia quis obcaecati quidem, cum aspernatur. Repudiandae similique debitis error id repellat ipsa ratione quisquam nam odit, officia!</p>
+				</div>
+				<div class="reply_content">
+					<h2 style="font-size: 1.2rem;padding: 5px 0;">回复列表</h2>
+					<div class="reply_list">
+						<div class="comment_c">
+							<div class="left_img">
+								<%= image_tag('pic.jpeg') %>
+							</div>
+							<div class="right_data">
+								<div>
+									<p><strong>Tourist's Name</strong> <span class="time">March 18, 2018</span></p>
+									<p class="data_c">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora numquam adipisci necessitatibus, quia quis obcaecati quidem, cum aspernatur. Repudiandae similique debitis error id repellat ipsa ratione quisquam nam odit, officia!</p>
+								</div>
+							</div>
+						</div>
+						<div class="comment_c">
+							<div class="left_img">
+								<%= image_tag('pic.jpeg') %>
+							</div>
+							<div class="right_data">
+								<div>
+									<p><strong>Tourist's Name</strong> <span class="time">March 18, 2018</span></p>
+									<p class="data_c">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora numquam adipisci necessitatibus, quia quis obcaecati quidem, cum aspernatur. Repudiandae similique debitis error id repellat ipsa ratione quisquam nam odit, officia!</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="reply">
+					<form action="#">
+						<textarea placeholder="请输入您的回复内容"></textarea>
+						<input type="submit" value="内容提交">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<h2 id="comment_d_l" style="font-size: 2rem;">To Comment</h2>
+	<div class="comment">
+		<form action="#">
+			<textarea placeholder="请输入您的评论内容"></textarea>
+			<input type="submit" value="评论提交">
+		</form>
+	</div>
+</div>

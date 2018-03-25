@@ -2,10 +2,10 @@
 <div class="list">
 	<ul class="left">
 		<li>
-			<span class="category">Sorting of Tourist</span>
+			<span class="category">Sorting of Posts</span>
 			<ul>
-				<li><a href="#">Asc of Time(正序)</a></li>
-				<li><a href="#">Desc of Time(倒序)</a></li>
+				<li><%= link_to 'Desc of Time(倒序)', users_path(order: 'desc') %></li>
+				<li><%= link_to 'Asc of Time(正序)', users_path(order: 'asc') %></li>
 			</ul>
 		</li>
 	</ul>

@@ -653,6 +653,16 @@ footer p{
 	background-color: #26abe2;
 	color: #f0f0f0;
 }
+.btn{
+	display: inline-block;
+	padding: 5px 10px !important;
+	background-color: #26abe2;
+	color: #fff !important;
+	border-radius: 4px;
+}
+.btn:hover{
+	background-color: #aaa;
+}
 
 
 @media screen and (min-width: 768px){
