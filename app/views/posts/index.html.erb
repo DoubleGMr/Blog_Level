@@ -33,7 +33,7 @@
 				</h3>
 				<span><%= post.created_at %></span>
 				<span> | <%= post.publish %></span>
-				<p><%= truncate(post.content,length:140,separate: '') %></p>
+				<p><%= truncate(strip_tags(post.content),length:140,separate: '') %></p>
 				<div class="control">
 					<%= link_to 'Edit',edit_post_path(post),class: 'edit' %>
 					<%= link_to 'Delete',post_path(post),method: :delete,data:{confirm:"你确定要删除 #{post.title} 吗?"},class:'destroy' %>

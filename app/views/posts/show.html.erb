@@ -22,7 +22,9 @@
 	<div class="post">
 		<p id='data_l'><span>Author: James</span><span>Date: <%= @post.created_at %></span></p>
 		<p id="content_l">
-			<%= @post.content %>
+			<div>
+				<%= @post.content.html_safe %>
+			</div>
 		</p>
 	</div>
 	<h2 id="comment_w_l" style="font-size: 2rem;">The comments of the Post</h2>

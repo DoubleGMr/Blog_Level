@@ -31,7 +31,7 @@
 				</h3>
 				<span><%= post.created_at %></span>
 				<span> | <%= post.publish %></span>
-				<p><%= truncate(post.content,length:140,separate: '') %></p>
+				<p><%= truncate(strip_tags(post.content),length:140,separate: '') %></p>
 			</li>
 		<% end %>
 	</ul>

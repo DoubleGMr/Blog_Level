@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
   def index
   	if params[:order]
-       @posts = current_user.posts.paginate(page: params[:page]).order(created_at: params[:order])
+       @posts = current_user.posts.unscoped.paginate(page: params[:page]).order(created_at: params[:order])
     else
        @posts = current_user.posts.paginate(page: params[:page])
     end

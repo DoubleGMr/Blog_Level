@@ -1,3 +1,4 @@
+
 <%= form_for(@post) do |f| %>
 	<div>
 		<label for="title">Title of Post</label>
@@ -16,12 +17,10 @@
 	</div>
 	<div>
 		<label for="post">Post内容</label>
-		<%= f.text_area :content, placeholder:'请输入文章的内容' %>
-		<!-- <textarea placeholder="请输入文章的内容"></textarea> -->
+		<%= f.cktext_area :content,:class => 'ckeditor' %>
 	</div>
 	<div>
 		<%= f.check_box :publish %><span class="publish">If you want it to Publish?</span>
-		<!-- <input type="checkbox"><span class="publish">If you want it to Publish?</span> -->
 	</div>
 	<div>
 		<%= f.submit value:'Submit' %>

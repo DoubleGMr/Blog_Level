@@ -33,6 +33,7 @@ gem 'jquery-rails'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.3'
 gem 'will_paginate'
 gem 'friendly_id', '~> 5.2', '>= 5.2.3'
+gem 'ckeditor'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
