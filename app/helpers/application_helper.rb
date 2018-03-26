@@ -7,4 +7,8 @@ module ApplicationHelper
 			page_title + ' | ' + base_title
 		end
 	end
+
+	def time_now time
+		time.strftime("%d %b in %Y")
+	end
 end

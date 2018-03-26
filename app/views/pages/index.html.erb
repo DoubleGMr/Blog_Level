@@ -29,8 +29,7 @@
 					<%= link_to truncate(post.title,length:30,separate:''),post_path(post) %>
 					<%= link_to 'Ruby on Rails','#',class: 'category' %>
 				</h3>
-				<span><%= post.created_at %></span>
-				<span> | <%= post.publish %></span>
+				<span><%= "#{time_now(post.created_at)} by " %></span><span style="color:#26abe2;"><%= post.user.name %></span>
 				<p><%= truncate(strip_tags(post.content),length:140,separate: '') %></p>
 			</li>
 		<% end %>
