@@ -20,6 +20,9 @@ img{
 	max-width: 100%;
 	height: auto;
 }
+p,span{
+	line-height: 1.7rem;
+}
 
 .clear:after{
 	content: '';
