@@ -4,36 +4,47 @@
 		<li>
 			<span class="category">System Classification</span>
 			<ul>
-				<li><a href="#">All Posts</a></li>
-				<li><a href="#">Html&Css</a></li>
-				<li><a href="#">Javascript</a></li>
-				<li><a href="#">Ruby on Rails</a></li>
-				<li><a href="#">React Native</a></li>
+				<li><%= link_to 'All Posts', root_path %></li>
+				<% @tags.each do|tag| %>
+					<li><%= link_to tag.name, root_path(:tip => "#{tag.name}") %></li>
+				<% end %>
 			</ul>
 		</li>
 		<li>
 			<span class="category">Sorting of Posts</span>
 			<ul>
-				<li><%= link_to 'Desc of Time(倒序)', root_path(:order => 'desc') %></li>
-				<li><%= link_to 'Asc of Time(正序)', root_path(:order => 'asc') %></li>
+				<li><%= link_to 'Desc of Time(倒序)', root_path(:tip => @type, :order => 'desc') %></li>
+				<li><%= link_to 'Asc of Time(正序)', root_path(:tip => @type, :order => 'asc') %></li>
 			</ul>
 		</li>
 	</ul>
 </div>
 <div class="maincontent">
-	<h2>All Posts</h2>
+	<h2>
+		<% if @type %>
+			<%= @type %>
+		<% else %>
+			All Posts
+		<% end %>
+	</h2>
+	
 	<ul class="post-list">
-		<% @posts.each do |post| %>
-			<li>
-				<h3>
-					<%= link_to truncate(post.title,length:30,separate:''),post_path(post) %>
-					<%= link_to 'Ruby on Rails','#',class: 'category' %>
-				</h3>
-				<span><%= "#{time_now(post.created_at)} by " %></span>
-				<span style="color:#26abe2;"><%= post.user.try(:name) %></span>
-				<p><%= truncate(strip_tags(post.content),length:140,separate: '') %></p>
-			</li>
+		<% if @posts.count > 0 %>
+			<% @posts.each do |post| %>
+				<li>
+					<h3>
+						<%= link_to truncate(post.title,length:30,separate:''),post_path(post) %>
+						<%= link_to post.tag.try(:name),'#',class: 'category' %>
+					</h3>
+					<span><%= "#{time_now(post.created_at)} by " %></span>
+					<span style="color:#26abe2;"><%= post.user.try(:name) %></span>
+					<p><%= truncate(strip_tags(post.content),length:140,separate: '') %></p>
+				</li>
+			<% end %>
+		<% else %>
+			<h3 style="background-color: #ccc;border-radius: 4px; padding: 10px 20px;">该分类下暂无文章.</h3>
 		<% end %>
 	</ul>
+	
 	<%= will_paginate @posts %>
 </div>

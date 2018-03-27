@@ -1,0 +1,34 @@
+<% provide(:title,"Create Tags") %>
+
+<%= render 'shared/list' %>
+<div class="maincontent">
+	<ul class="post-list">
+		<h2>All the Tags</h2>
+		<% if @tags.count == 0 %>
+			<h3 style="background-color: #ccc;border-radius: 4px; padding: 10px 20px;">暂无标签.</h3>
+		<% else %>
+			<% @tags.each do |tag| %>
+				<li>
+					<h3>
+						<%= link_to tag.name,'' %>
+						<span class="category"><%= time_now(tag.created_at) %></span>
+					</h3>
+					<span style="color:#26abe2;"><%= tag.user.try(:name) %></span>
+					<% if tag.introduce.empty? %>
+						<p>该标签没有撰写简介.</p>
+					<% else %>
+						<p><%= truncate(strip_tags(tag.introduce),length:140,separate: '') %></p>
+					<% end %>	
+					<div class="control">
+						<%= link_to 'Edit',edit_tag_path(tag),class: 'edit' %>
+						<%= link_to 'Delete',tag_path(tag),method: :delete,data:{confirm:"你确定要删除 #{tag.name} 吗?"},class:'destroy' %>
+					</div>
+				</li>
+			<% end %>
+		<% end %>
+	</ul>
+	<h2>Create the Tags</h2>
+	<div class="edit_f">
+		<%= render 'form' %>
+	</div>
+</div>

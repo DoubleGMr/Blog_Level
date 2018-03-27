@@ -1,16 +1,16 @@
 class PostsController < ApplicationController
 
+  include Commond
+
   before_action :get_name, only:[:show,:edit,:update]
   before_action :logged_in_user, except:[:show]
   before_action :admin_user, except:[:show]
 
 
   def index
-  	if params[:order]
-       @posts = current_user.posts.unscoped.paginate(page: params[:page]).order(created_at: params[:order])
-    else
-       @posts = current_user.posts.paginate(page: params[:page])
-    end
+    @tags = Tag.all
+    id = Tag.where(name: params[:tip]).ids
+    post(params[:order],params[:tip],id)
   end
 
   def new
@@ -54,7 +54,7 @@ class PostsController < ApplicationController
   private
 
    def post_params
-   	params.require(:post).permit(:title,:content,:publish)
+   	params.require(:post).permit(:title,:content,:publish,:tag_id)
    end
 
    def get_name

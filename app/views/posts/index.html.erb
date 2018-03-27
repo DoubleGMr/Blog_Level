@@ -4,41 +4,50 @@
 		<li>
 			<span class="category">System Classification</span>
 			<ul>
-				<li><a href="#">All Posts</a></li>
-				<li><a href="#">Html&Css</a></li>
-				<li><a href="#">Javascript</a></li>
-				<li><a href="#">Ruby on Rails</a></li>
-				<li><a href="#">React Native</a></li>
+				<li><%= link_to 'All Post', posts_path %></li>
+				<% @tags.each do|tag| %>
+					<li><%= link_to tag.name, posts_path(:tip => "#{tag.name}") %></li>
+				<% end %>
 			</ul>
 		</li>
 		<li>
 			<span class="category">Sorting of Posts</span>
 			<ul>
-				<li><%= link_to 'Desc of Time(倒序)', posts_path(order: 'desc') %></li>
-				<li><%= link_to 'Asc of Time(正序)', posts_path(order: 'asc') %></li>
+				<li><%= link_to 'Desc of Time(倒序)', posts_path(:tip => @type, :order => 'desc') %></li>
+				<li><%= link_to 'Asc of Time(正序)', posts_path(:tip => @type, :order => 'asc') %></li>
 			</ul>
 		</li>
 	</ul>
 </div>
 
 <div class="maincontent">
-	<h2>All Posts<small style="color:#26abe2;"> (<%= @posts.count %>)</small></h2>
+	<h2>
+		<% if @type %>
+			<%= @type %>
+		<% else %>
+			All Posts
+		<% end %>
+		<small style="color:#26abe2;"> (<%= @posts.count %>)</small>
+	</h2>
 	<ul class="post-list">
-
-		<% @posts.each do |post| %>
-			<li>
-				<h3>
-					<%= link_to truncate(post.title,length:30,separate:''),post_path(post) %>
-					<%= link_to 'Ruby on Rails','#',class: 'category' %>
-				</h3>
-				<span><%= post.created_at %></span>
-				<span> | <%= post.publish %></span>
-				<p><%= truncate(strip_tags(post.content),length:140,separate: '') %></p>
-				<div class="control">
-					<%= link_to 'Edit',edit_post_path(post),class: 'edit' %>
-					<%= link_to 'Delete',post_path(post),method: :delete,data:{confirm:"你确定要删除 #{post.title} 吗?"},class:'destroy' %>
-				</div>
-			</li>
+		<% if @posts.count > 0 %>
+			<% @posts.each do |post| %>
+				<li>
+					<h3>
+						<%= link_to truncate(post.title,length:30,separate:''),post_path(post) %>
+						<%= link_to post.tag.try(:name),'#',class: 'category' %>
+					</h3>
+					<span><%= time_now(post.created_at) %></span>
+					<span> | <%= post.publish %></span>
+					<p><%= truncate(strip_tags(post.content),length:140,separate: '') %></p>
+					<div class="control">
+						<%= link_to 'Edit',edit_post_path(post),class: 'edit' %>
+						<%= link_to 'Delete',post_path(post),method: :delete,data:{confirm:"你确定要删除 #{post.title} 吗?"},class:'destroy' %>
+					</div>
+				</li>
+			<% end %>
+		<% else %>
+			<h3 style="background-color: #ccc;border-radius: 4px; padding: 10px 20px;">该分类下暂无文章.</h3>
 		<% end %>
 	</ul>
 	<%= will_paginate %>

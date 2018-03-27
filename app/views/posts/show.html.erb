@@ -20,7 +20,7 @@
 <div class="maincontent">
 	<h2 id="title_l"><%= @post.title %></h2>
 	<div class="post">
-		<p id='data_l'><span>Author: James</span><span>Date: <%= @post.created_at %></span></p>
+		<p id='data_l'><span><%= @post.user.try(:name) %></span><span>Date: <%= @post.created_at %></span></p>
 		<p id="content_l">
 			<div>
 				<%= @post.content.html_safe %>

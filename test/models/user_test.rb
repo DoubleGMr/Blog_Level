@@ -2,6 +2,7 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   def setup
+    @tag = tags(:tag1)
   	@user = User.new(name:"Example User",email:"user@example.com",
   					         password: "foobar", password_confirmation: "foobar")
   end
@@ -69,7 +70,7 @@ class UserTest < ActiveSupport::TestCase
 
   test "associated posts should be destroyed" do
     @user.save
-    @user.posts.create!(title:"Lorem",content: "Lorem ipsum",publish: "true")
+    @user.posts.create!(title:"Lorem",content: "Lorem ipsum",publish: "true",tag_id: @tag.id)
     assert_difference 'Post.count', -1 do
       @user.destroy
     end

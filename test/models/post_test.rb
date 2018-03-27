@@ -2,8 +2,9 @@ require 'test_helper'
 
 class PostTest < ActiveSupport::TestCase
   def setup
+    @tag = tags(:tag1)
   	@user = users(:michael)
-  	@post = @user.posts.build(title:"Lorem",content: "Lorem ipsum",publish: true)
+  	@post = @user.posts.build(title:"Lorem",content: "Lorem ipsum",publish: true,tag_id: @tag.id)
   end
 
   test "should be valid" do
@@ -13,6 +14,11 @@ class PostTest < ActiveSupport::TestCase
   test "user id should be present" do
   	@post.user_id = nil
   	assert_not @post.valid?
+  end
+
+  test "tag id should be present" do
+    @post.tag_id = nil
+    assert_not @post.valid?
   end
 
   test "title should be present" do

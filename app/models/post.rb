@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user
+  belongs_to :tag
 
   extend FriendlyId
   friendly_id :title, use: :slugged

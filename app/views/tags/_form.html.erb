@@ -1,0 +1,13 @@
+<%= form_for(@tag) do |f| %>
+	<div>
+		<label for="name">Name of Tag</label>
+		<%= f.text_field :name, placeholder:'The name of Tag',class: 'post_title' %>
+	</div>
+	<div>
+		<label for="introduce">Tags简介</label>
+		<%= f.cktext_area :introduce,:class => 'ckeditor' %>
+	</div>
+	<div>
+		<%= f.submit value:'Submit' %>
+	</div>
+<% end %>
