@@ -20,7 +20,7 @@ img{
 	max-width: 100%;
 	height: auto;
 }
-p,span{
+p,span,em,.pagination a{
 	line-height: 1.7rem;
 }
 
