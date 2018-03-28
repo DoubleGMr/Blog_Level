@@ -22,26 +22,26 @@
 <div class="maincontent">
 	<h2>Write Down Here</h2>
 	<div class="contact_f">
-		<form action="#">
+		<%= form_for @message, url: messages_url do |f| %>
 			<div>
 				<label for="name">Name <small>(正确的姓名或称号)</small></label>
-				<input type="text" placeholder="Please write down your name here">
+				<%= f.text_field :name, placeholder: 'Please write down your name here' %>
 			</div>
 			<div>
 				<label for="email">Email <small>(确保正在使用)</small></label>
-				<input type="text" placeholder="Please write down your email here">
+				<%= f.text_field :email, placeholder: 'Please write down your email here' %>
 			</div>
 			<div>
-				<label for="type">Type <small>(eg: 错误 问题 or 其他类型)</small></label>
-				<input type="text" placeholder="Please write down the type of content">
+				<label for="Introduce">Type <small>(eg: 错误 问题 or 其他类型,非必填)</small></label>
+				<%= f.text_field :introduce, placeholder: 'Please write down the type of content' %>
 			</div>
 			<div>
 				<label for="content">Content <small>(请详细表述您的问题)</small></label>
-				<textarea placeholder="It's best limit to 100~150 words"></textarea>
+				<%= f.text_area :content, placeholder: "It\'s best limit to 100~150 words" %>
 			</div>
 			<div>
-				<input type="submit" value="Submit">
+				<%= f.submit value: 'Submit' %>
 			</div>
-		</form>
+		<% end %>
 	</div>
 </div>

@@ -666,6 +666,16 @@ footer p{
 	background-color: #aaa;
 }
 
+.delete_all_message{
+	font-size: 2rem;
+	font-weight: 500;
+	color: white;
+	padding: 0 10px;
+	border-radius: 4px;
+	background-color: red;
+	display: inline-block;
+}
+
 
 @media screen and (min-width: 768px){
 	.container{

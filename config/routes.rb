@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   resources :tags,except:[:index,:show]
   resources :comments, only:[:create]
   resources :replies, only:[:create]
+  resources :messages, only:[:index,:create,:destroy]
+
+  match 'all_messages_delete', to: 'messages#delete_all', via: :delete
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
