@@ -4,7 +4,7 @@ class TagsController < ApplicationController
   	before_action :admin_user
 
   def new
-  	@tags = Tag.all
+  	@tags = Tag.all.paginate(page: params[:page], per_page: 5)
   	@tag = Tag.new
   end
 
@@ -16,7 +16,7 @@ class TagsController < ApplicationController
   	else
   		flash[:danger] = "因错误创建失败."
   	end
-  	redirect_to root_url
+  	redirect_back(fallback_location: new_tag_path)
   end
 
   def edit
@@ -30,13 +30,13 @@ class TagsController < ApplicationController
   	else
   		flash[:danger] = "标签资料更新失败."
   	end
-  	redirect_to root_url
+  	redirect_back(fallback_location: new_tag_path)
   end
 
   def destroy
   	Tag.find(params[:id]).destroy
   	flash[:danger] = "标签删除成功."
-  	redirect_to root_url
+  	redirect_back(fallback_location: new_tag_path)
   end
 
   private

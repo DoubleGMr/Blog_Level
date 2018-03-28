@@ -221,8 +221,6 @@ header .word h2 strong{
 	color: #26abe2;
 }
 .post-list li h3 a.category{
-	display: block;
-	float: none;
 	color: #26abe2;
 	font-size: .9rem;
 }
