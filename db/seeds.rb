@@ -13,11 +13,11 @@ user = User.create!(name:  "Example User",
              activated: true,
              activated_at: Time.now.to_s(:db))
 
-10.times do |n|
+20.times do |n|
 	name = Faker::Name.name
 	email = "example-#{n+1}@railstutorial.org"
 	password = "password"
-	User.create!(name: name,
+	users = User.create!(name: name,
                  email: email,
                  password:              password,
                  password_confirmation: password,
@@ -25,17 +25,24 @@ user = User.create!(name:  "Example User",
                  activated_at: Time.now.to_s(:db))
 
 tag = user.tags.create(
-        name: Faker::Lorem.sentence(2),
-        introduce: Faker::Lorem.paragraph,
-        user: user
-    )
+            name: Faker::Lorem.sentence(2),
+            introduce: Faker::Lorem.paragraph,
+            user: user
+        )
 
 post = user.posts.create(
-        title: Faker::Lorem.word,
+    title: Faker::Lorem.word,
+    content: Faker::Lorem.paragraph,
+    publish: true,
+    user: user,
+    tag: tag
+    )
+
+comment = users.comments.create(
         content: Faker::Lorem.paragraph,
-        publish: true,
-        user: user,
-        tag: tag
-        )
+        user: users,
+        post: post
+    )
+
 end
 
