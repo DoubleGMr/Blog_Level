@@ -23,8 +23,15 @@ $(document).on("turbolinks:load",function(){
 			};
 			var t1 = $(window).scrollTop() - $('.list').offset().top;
 			var w = $(window).width();
-			if( t1 >= 0 && w > 768){
-				$('.list>ul').css('marginTop',t1);
+			var th = $('.list>ul').height();
+			var ph = $('.maincontent').height();
+			if( t1 >= 0 && w > 768 && th < ph){
+				if (th + t1 >= ph) {
+					$('.list>ul').offset().top = '16px';
+				}
+				else{
+					$('.list>ul').css('marginTop',t1);
+				}
 			}else{
 				$('.list>ul').css('marginTop','16px');
 			}
