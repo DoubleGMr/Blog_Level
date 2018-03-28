@@ -2,7 +2,7 @@
 <div class="list">
 	<ul>
 		<li>
-			<%= image_tag('pic.jpeg') %>
+			<%= current_user.admin ? image_tag('pic.jpeg') : image_tag('user.jpeg') %>
 		</li>
 		<li>
 			<span class="category">Some of My Data</span>
@@ -22,46 +22,27 @@
 		</p>
 		<ul style="padding-left:0;">
 			<li>
-				<% @user.comments.each.with_index do |c,index| %>
-				<div class="comment_c">
-					<div class="left_img">
-						<%= image_tag('pic.jpeg') %>
-					</div>
-					<div class="right_data">
-						<div>
-							<p>For: <strong><a href="#" class="time"><%= c.post.try(:title) %></a></strong> <span class="reply_list_button">查看回复</span></p>
-							<p class="data_c"><%= c.content %></p>
+				<div class="comments">
+					<% @user.comments.each.with_index do |c,index| %>
+					<div class="comment_c">
+						<div class="left_img">
+							<%= image_tag("#{img_chose(c)}") %>
 						</div>
-						<div class="reply_content">
-							<h2 style="font-size: 1.2rem;padding: 5px 0;">回复列表</h2>
-							<div class="reply_list">
-								<div class="comment_c">
-									<div class="left_img">
-										<%= image_tag('pic.jpeg') %>
-									</div>
-									<div class="right_data">
-										<div>
-											<p><strong>Tourist's Name</strong> <span class="time">March 18, 2018</span></p>
-											<p class="data_c">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora numquam adipisci necessitatibus, quia quis obcaecati quidem, cum aspernatur. Repudiandae similique debitis error id repellat ipsa ratione quisquam nam odit, officia!</p>
-										</div>
-									</div>
-								</div>
-								<div class="comment_c">
-									<div class="left_img">
-										<%= image_tag('pic.jpeg') %>
-									</div>
-									<div class="right_data">
-										<div>
-											<p><strong>Tourist's Name</strong> <span class="time">March 18, 2018</span></p>
-											<p class="data_c">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora numquam adipisci necessitatibus, quia quis obcaecati quidem, cum aspernatur. Repudiandae similique debitis error id repellat ipsa ratione quisquam nam odit, officia!</p>
-										</div>
-									</div>
-								</div>
+						<div class="right_data">
+							<div>
+								<p>For: <strong><%= link_to c.post.try(:title),post_path(c.post),class: 'time' %></strong> 
+									<span class="reply_button">回复</span> 
+									<% if c.replies.count > 0 %>
+										<span class="reply_list_button">查看回复</span>
+									<% end %>
+								</p>
+								<p class="data_c"><%= c.content %></p>
 							</div>
+							<%= render 'shared/reply_list', c: c %>
 						</div>
 					</div>
+					<% end %>
 				</div>
-				<% end %>
 			</li>
 		</ul>
 	</div>

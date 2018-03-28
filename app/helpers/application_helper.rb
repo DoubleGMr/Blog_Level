@@ -11,4 +11,12 @@ module ApplicationHelper
 	def time_now time
 		time.strftime("%d %b in %Y")
 	end
+
+	def img_chose tip
+		if tip.user.try(:admin)
+			'pic.jpeg'
+		else
+			'user.jpeg'
+		end
+	end
 end

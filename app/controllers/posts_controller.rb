@@ -44,6 +44,7 @@ class PostsController < ApplicationController
 
   def show
     @comment = Comment.new
+    @reply = Reply.new
   end
 
   def destroy	

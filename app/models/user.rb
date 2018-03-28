@@ -3,6 +3,7 @@ class User < ApplicationRecord
 	has_many :posts,dependent: :destroy
 	has_many :tags,dependent: :destroy
 	has_many :comments,dependent: :destroy
+	has_many :replies,dependent: :destroy
 
 	attr_accessor :remember_token, :activation_token, :reset_token
 	before_save :downcase_email

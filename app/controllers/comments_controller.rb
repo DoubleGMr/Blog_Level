@@ -7,11 +7,10 @@ class CommentsController < ApplicationController
         @comment.user_id = current_user.id
         if @comment.save
           flash[:success] = "评论发表成功."
-          redirect_back(fallback_location: posts_path)
         else
           flash[:danger] = "请输入正确内容."
-          render 'show'
         end
+         redirect_back(fallback_location: posts_path)
 	end
 
 	private

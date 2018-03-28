@@ -32,47 +32,21 @@
 		<% @post.comments.each.with_index do |c,index| %>
 		<div class="comment_c">
 			<div class="left_img">
-				<%= image_tag('pic.jpeg') %>
+				<%= image_tag("#{img_chose(c)}") %>
 			</div>
 			<div class="right_data">
 					<div>
 						<p>Floor: <%= index+1 %> <span class="time"><%= time_now(c.created_at) %></span></p>
-						<p><strong><%= c.user.try(:name) %></strong> <span class="reply_button">回复</span> <span class="reply_list_button">查看回复</span></p>
+						<p>
+							<strong><%= c.user.try(:name) %></strong> 
+							<span class="reply_button">回复</span> 
+							<% if c.replies.count > 0 %>
+								<span class="reply_list_button">查看回复</span>
+							<% end %>
+						</p>
 						<p class="data_c"><%= c.content %></p>
-					</div>		
-				<!-- <div class="reply_content">
-					<h2 style="font-size: 1.2rem;padding: 5px 0;">回复列表</h2>
-					<div class="reply_list">
-						<div class="comment_c">
-							<div class="left_img">
-								<%= image_tag('pic.jpeg') %>
-							</div>
-							<div class="right_data">
-								<div>
-									<p><strong>Tourist's Name</strong> <span class="time">March 18, 2018</span></p>
-									<p class="data_c">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora numquam adipisci necessitatibus, quia quis obcaecati quidem, cum aspernatur. Repudiandae similique debitis error id repellat ipsa ratione quisquam nam odit, officia!</p>
-								</div>
-							</div>
-						</div>
-						<div class="comment_c">
-							<div class="left_img">
-								<%= image_tag('pic.jpeg') %>
-							</div>
-							<div class="right_data">
-								<div>
-									<p><strong>Tourist's Name</strong> <span class="time">March 18, 2018</span></p>
-									<p class="data_c">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora numquam adipisci necessitatibus, quia quis obcaecati quidem, cum aspernatur. Repudiandae similique debitis error id repellat ipsa ratione quisquam nam odit, officia!</p>
-								</div>
-							</div>
-						</div>
 					</div>
-				</div>
-				<div class="reply">
-					<form action="#">
-						<textarea placeholder="请输入您的回复内容"></textarea>
-						<input type="submit" value="内容提交">
-					</form>
-				</div> -->
+				<%= render 'shared/reply_list', c: c %>
 			</div>
 		</div>
 		<% end %>
@@ -84,9 +58,5 @@
 			<%= f.hidden_field :post_id, value: @post.id %>
 			<%= f.submit  value: '评论提交' %>
 		<% end %>
-		<!-- <form action="#">
-			<textarea placeholder="请输入您的评论内容"></textarea>
-			<input type="submit" value="评论提交">
-		</form> -->
 	</div>
 </div>

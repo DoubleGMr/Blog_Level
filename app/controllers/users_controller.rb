@@ -31,6 +31,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @reply = Reply.new
     redirect_to root_url and return unless @user.activated == true
   end
 

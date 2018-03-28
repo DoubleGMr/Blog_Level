@@ -1,0 +1,25 @@
+<div class="reply_content">
+	<h2 style="font-size: 1.2rem;padding: 5px 0;">回复列表</h2>
+	<div class="reply_list">
+		<% c.replies.each.with_index do |r,index| %>
+		 	<div class="comment_c">
+				<div class="left_img">
+					<%= image_tag("#{img_chose(r)}") %>
+				</div>
+				<div class="right_data">
+					<div>
+						<p><strong><%= r.user.try(:name) %></strong> <span class="time"><%= time_now(r.created_at) %></span></p>
+						<p class="data_c"><%= r.content %></p>
+					</div>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
+<div class="reply">
+	<%= form_for @reply, url: replies_url do |f| %>
+		<%= f.text_area :content, placeholder:'请输入您的回复内容' %>
+		<%= f.hidden_field :comment_id, value: c.id %>
+		<%= f.submit  value: '回复提交' %>
+	<% end %>
+</div>
