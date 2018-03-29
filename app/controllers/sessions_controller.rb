@@ -11,7 +11,11 @@ class SessionsController < ApplicationController
   		if user.activated?
         log_in user
         params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-        redirect_to user
+        if user.admin?
+          redirect_to dashboard_index_url
+        else
+          redirect_to user
+        end
       else
         message  = "账号没有正确激活, "
         message += "请检查你邮箱中的激活文件"

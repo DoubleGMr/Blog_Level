@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  
 
   root 'pages#index'
   get '/about',to:'pages#about'
@@ -20,6 +19,7 @@ Rails.application.routes.draw do
   resources :comments, only:[:create]
   resources :replies, only:[:create]
   resources :messages, only:[:index,:create,:destroy]
+  resources :dashboard, only: [:index]
 
   match 'all_messages_delete', to: 'messages#delete_all', via: :delete
 

@@ -1,0 +1,35 @@
+<% provide(:title,"Dashboard") %>
+
+<%= render 'shared/list' %>
+<div class="maincontent">
+	<h2>DashBoard</h2>
+	<div class="introduce">
+		<p>" Hi , <strong><%= current_user.name %></strong>. " - <span class="get_time"></span></p>
+		<p>"Welcome Back <strong>here</strong>." <br>欢迎回到<strong>" Wanting "</strong>网站来完成文章的撰写 .</p>
+		<p>Until now, the website has made gratifying achievements, specifically as follows. <br>直到现在，网站已取得可喜的成绩，具体以如下内容为例！</p>
+		<p><strong>The following is an overview of the website data:<br>以下为各项网站数据的概述内容:</strong>
+			<ul class="introduce-list">
+				<li>"The number of visits to the site is <strong>400</strong> times" <br>网站被访问次数总数400次</li>
+				<li>A total of <strong><%= @posts.count %></strong> articles in all kinds of Web Technology<br>各类Web技术文章总计100篇</li>
+				<li>Total of <strong><%= @tags.count %></strong> technical categories (categories)<br>涉及技术类别(类别)总计5项</li>
+			</ul>
+		</p>
+		<p><strong>The details of the other web site data are as follows: <br>其余各项网站数据的具体资料信息内容如下:</strong>
+			<ul class="introduce-list">
+				<li>The total number of current websites is <strong><%= @users.count %></strong><br>目前为止网站注册人数总计200名</li>
+				<li>The number of questions in the article is <strong><%= "#{@comments.count + @replies.count}" %></strong> times<br>文章提问次数总计200次</li>
+				<li>A total of <strong><%= @messages.count %></strong> times for information advice or error modification<br>收到游客信息咨询或错误修改建议次数总计300次</li>
+			</ul>
+		</p>
+	</div>
+	<h2>Keep On Doing It</h2>
+	<div class="introduce">
+		<p>When you don't write motivation, think about the original intention of doing this and what you want to achieve: <br>当你没有撰写动力的时候，思考一下当初做这件事的初衷以及想要达成的目标:
+			<ul class="introduce-list">
+				<li>I want to have a website of my own to publish my own or my favorite articles.<br>我想拥有一个属于自己的网站用以发布我自己或者喜欢的文章.</li>
+				<li>I want to make a set of learning materials suitable for me and use it for others to use for reference.<br>我想制定一套适合我的学习资料，为他人借鉴使用.</li>
+			</ul>
+		</p>
+		<p>Maybe now is a certain day in the future, but please don't forget that you are still the <strong>one</strong> in the heart.<br>或许现在是未来的某一天，但请不要忘了，自己依旧是心中的那个<strong>自己</strong>。</p>
+	</div>
+</div>

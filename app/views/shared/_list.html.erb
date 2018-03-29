@@ -3,11 +3,10 @@
 		<li>
 			<span class="category">Control Panel</span>
 			<ul>
-				<li><a href="#">DashBoard</a></li>
-				<li><a href="#">Create New Post</a></li>
-				<li><a href="#">Create New Category</a></li>
-				<li><a href="#">Messages</a></li>
-				<li><a href="#">Config of Website</a></li>
+				<li><%= link_to 'DashBoard',dashboard_index_path %></li>
+				<li><%= link_to 'Create New Post',new_post_path %></li>
+				<li><%= link_to 'Create New Tag',new_tag_path %></li>
+				<li><%= link_to 'Message', messages_path %></li>
 			</ul>
 		</li>
 	</ul>
