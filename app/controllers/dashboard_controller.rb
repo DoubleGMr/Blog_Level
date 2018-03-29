@@ -10,5 +10,6 @@ class DashboardController < ApplicationController
   	@messages = Message.all
   	@comments = Comment.all
   	@replies = Reply.all
+    @ips = Ip.all
   end
 end

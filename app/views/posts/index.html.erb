@@ -6,7 +6,7 @@
 			<ul>
 				<li><%= link_to 'All Post', posts_path %></li>
 				<% @tags.each do|tag| %>
-					<li><%= link_to tag.name, posts_path(:tip => "#{tag.name}") %></li>
+				<li><%= link_to tag.name, posts_path(:tip => "#{tag.name}") %></li>
 				<% end %>
 			</ul>
 		</li>
@@ -19,7 +19,6 @@
 		</li>
 	</ul>
 </div>
-
 <div class="maincontent">
 	<h2>
 		<% if @type %>
