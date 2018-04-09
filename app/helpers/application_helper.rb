@@ -16,7 +16,7 @@ module ApplicationHelper
 		if tip.user.try(:admin)
 			'pic.jpeg'
 		else
-			'user.jpeg'
+			'user.jpg'
 		end
 	end
 end
