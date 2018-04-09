@@ -34,13 +34,13 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.3'
 gem 'will_paginate'
 gem 'friendly_id', '~> 5.2', '>= 5.2.3'
 gem 'ckeditor'
+gem 'faker'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
 
-  gem 'faker'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
