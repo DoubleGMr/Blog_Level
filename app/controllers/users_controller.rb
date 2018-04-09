@@ -27,7 +27,7 @@ class UsersController < ApplicationController
       redirect_to root_url
   	else
   		render 'new'
-  	end
+  	ends
   end
 
   def show
