@@ -2,7 +2,7 @@
 <div class="list">
 	<ul>
 		<li>
-			<%= current_user.admin ? image_tag "pic.jpg" : image_tag "user.jpg" %>
+			<%= current_user.admin ? image_tag("pic.jpg") : image_tag("user.jpg") %>
 		</li>
 		<li>
 			<span class="category">Some of My Data</span>
@@ -26,7 +26,7 @@
 					<% @user.comments.each.with_index do |c,index| %>
 					<div class="comment_c">
 						<div class="left_img">
-							<%= image_tag("#{img_chose(c)}") %>
+							<%= image_tag "#{img_chose(c)}" %>
 						</div>
 						<div class="right_data">
 							<div>
