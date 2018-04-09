@@ -14,7 +14,7 @@ module ApplicationHelper
 
 	def img_chose tip
 		if tip.user.try(:admin)
-			'pic.jpg'
+			'pic.jpeg'
 		else
 			'user.jpg'
 		end
